@@ -45,7 +45,13 @@ resource "azurerm_linux_web_app" "webappapi" {
     }
 
     app_settings = {
-        WEBSITES_PORT = "80"
+        SQL_PASSWORD = var.pokequeue_user_password
+        SQL_SERVER = var.pokequeue_sql_server
+        SQL_DATABASE = var.pokequeue_database_name
+        SQL_USER = var.pokequeue_user
+        SQL_DRIVER = var.sql_driver
+        AZURE_SAK = var.storage_account_access_key
+        QUEUE_NAME = var.queue_name
     }
 
     tags = var.tags
